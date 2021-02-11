@@ -1,0 +1,44 @@
+
+Axios post for user from create-pokemon-species
+ 
+    // axios
+    //   .get("http://localhost:5000/users/")
+    //   .then((response) => {
+    //     if (response.data.length > 0) {
+    //       this.setState({
+    //         users: response.data.map((user: any) => user.username),
+    //         username: response.data[0].username,
+    //       });
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
+
+Route for user from server.ts
+    <Route path="/user" exact component={CreateUser} />
+
+<li className="navbar-item">
+              <Link to="/user" className="nav-link">
+                Add Pokemon
+              </Link>
+            </li>
+
+<div className="form-group">
+            <label>Pokemon Name: </label>
+            <select
+              ref="userInput"
+              required
+              className="form-control"
+              value={this.state.username}
+              onChange={this.onChangeUsername}
+            >
+              {this.state.users.map((user: any) => {
+                return (
+                  <option key={user} value={user}>
+                    {user}
+                  </option>
+                );
+              })}
+            </select>
+          </div>

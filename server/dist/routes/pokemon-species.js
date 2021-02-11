@@ -15,14 +15,12 @@ pokemonSpeciesRouter.post('/add', (req, res) => {
     const username = req.body.username;
     const description = req.body.description;
     const level = req.body.level;
-    const type = req.body.type;
-    const date = req.body.date;
+    const pokemonType = req.body.pokemonType;
     const newPokemonSpecies = new pokemon_species_model_1.default({
         username,
         description,
         level,
-        type,
-        date
+        pokemonType
     });
     newPokemonSpecies.save()
         .then(() => res.json('Pokemon added!'))
@@ -43,9 +41,8 @@ pokemonSpeciesRouter.post('/update/:id', (req, res) => {
         .then((species) => {
         species.username = req.body.username;
         species.description = req.body.description;
-        species.level = req.body.type;
-        species.type = req.body.type;
-        species.date = req.body.date;
+        species.level = req.body.level;
+        species.pokemonType = req.body.pokemonType;
         species.save()
             .then(() => res.json('Pokemon updated!'))
             .catch((err) => res.status(400).json('Error: ' + err));

@@ -1,8 +1,9 @@
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
-import exercisesRouter from './routes/exercises';
+import pokemonSpeciesRouter from './routes/pokemon-species';
 import usersRouter from './routes/users';
+import pokemonTypesRouter from './routes/pokemon-types';
 
 require("dotenv").config();
 
@@ -20,9 +21,9 @@ connection.once("open", () => {
   console.log("MongoDB database connection established");
 });
 
-app.use('/users', usersRouter);
-app.use('/exercises', exercisesRouter);
-
+//app.use('/users', usersRouter);
+app.use('/pokemon-species', pokemonSpeciesRouter);
+app.use('/pokemon-types', pokemonTypesRouter);
 
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);

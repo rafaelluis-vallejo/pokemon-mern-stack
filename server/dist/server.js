@@ -6,8 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const mongoose_1 = __importDefault(require("mongoose"));
-const exercises_1 = __importDefault(require("./routes/exercises"));
-const users_1 = __importDefault(require("./routes/users"));
+const pokemon_species_1 = __importDefault(require("./routes/pokemon-species"));
+const pokemon_types_1 = __importDefault(require("./routes/pokemon-types"));
 require("dotenv").config();
 const app = express_1.default();
 const port = process.env.PORT || 5000;
@@ -19,8 +19,9 @@ const connection = mongoose_1.default.connection;
 connection.once("open", () => {
     console.log("MongoDB database connection established");
 });
-app.use('/users', users_1.default);
-app.use('/exercises', exercises_1.default);
+//app.use('/users', usersRouter);
+app.use('/pokemon-species', pokemon_species_1.default);
+app.use('/pokemon-types', pokemon_types_1.default);
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
 });
