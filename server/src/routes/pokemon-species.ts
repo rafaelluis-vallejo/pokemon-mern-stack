@@ -11,13 +11,13 @@ pokemonSpeciesRouter.get('/', (req, res) => {
 
 pokemonSpeciesRouter.post('/add',(req, res) => {
   const username = req.body.username;
-  const description = req.body.description;
+  const nextEvolution = req.body.nextEvolution;
   const level = req.body.level as Number;
   const pokemonType = req.body.pokemonType;
 
   const newPokemonSpecies = new pokemonSpecies({
     username,
-    description,
+    nextEvolution,
     level,
     pokemonType
   })
@@ -43,7 +43,7 @@ pokemonSpeciesRouter.post('/update/:id', (req, res) => {
   pokemonSpecies.findById(req.params.id)
     .then((species: any) => {
       species.username = req.body.username;
-      species.description = req.body.description;
+      species.nextEvolution = req.body.nextEvolution;
       species.level = req.body.level as Number;
       species.pokemonType = req.body.pokemonType;
 

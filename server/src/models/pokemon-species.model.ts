@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const pokemonSpeciesSchema = new Schema(
   {
     username: { type: String, required: true },
-    description: { type: String, required: true },
+    nextEvolution: { type: String, required: true },
     level: { type: Number, required: true },
     pokemonType: { type: String, required: true },
   },{

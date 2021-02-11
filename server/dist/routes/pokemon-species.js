@@ -13,12 +13,12 @@ pokemonSpeciesRouter.get('/', (req, res) => {
 });
 pokemonSpeciesRouter.post('/add', (req, res) => {
     const username = req.body.username;
-    const description = req.body.description;
+    const nextEvolution = req.body.nextEvolution;
     const level = req.body.level;
     const pokemonType = req.body.pokemonType;
     const newPokemonSpecies = new pokemon_species_model_1.default({
         username,
-        description,
+        nextEvolution,
         level,
         pokemonType
     });
@@ -40,7 +40,7 @@ pokemonSpeciesRouter.post('/update/:id', (req, res) => {
     pokemon_species_model_1.default.findById(req.params.id)
         .then((species) => {
         species.username = req.body.username;
-        species.description = req.body.description;
+        species.nextEvolution = req.body.nextEvolution;
         species.level = req.body.level;
         species.pokemonType = req.body.pokemonType;
         species.save()

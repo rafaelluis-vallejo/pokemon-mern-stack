@@ -1,3 +1,21 @@
+ <div className="form-group">
+            <label>Next Evolution: </label>
+            <select
+              ref="userInput"
+              className="form-control"
+              value={this.state.nextEvolution}
+              onChange={this.onChangeEvolution}
+            >
+              {this.state.evolves.map((evolve: any) => {
+                return (
+                  <option key={evolve} value={evolve}>
+                    {evolve}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+
 
 Axios post for user from create-pokemon-species
  
